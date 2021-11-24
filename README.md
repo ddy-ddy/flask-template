@@ -26,6 +26,7 @@
 │   │   └── settings.html
 │   └── views.py     //视图函数
 ├── run.py   //运行入口
+├── .flaskenv   //配置环境
 └── test_dy_app.py     //测试项目代码
 ```
 
