@@ -60,26 +60,7 @@ def delete(movie_id):
     flash('Item deleted.')
     return redirect(url_for('index'))
 
-
-@app.route('/settings', methods=['GET', 'POST'])
-@login_required
-def settings():
-    if request.method == 'POST':
-        name = request.form['name']
-
-        if not name or len(name) > 20:
-            flash('Invalid input.')
-            return redirect(url_for('settings'))
-
-        user = User.query.first()
-        user.name = name
-        db.session.commit()
-        flash('Settings updated.')
-        return redirect(url_for('index'))
-
-    return render_template('settings.html')
-
-
+# 登入
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -103,6 +84,7 @@ def login():
     return render_template('login.html')
 
 
+# 登出
 @app.route('/logout')
 @login_required
 def logout():
